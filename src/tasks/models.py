@@ -10,4 +10,4 @@ class TaskModel(Base):
     description = Column(String)
     is_completed = Column(Boolean, default=False)
     
-  
+    user_id=Column(Integer,ForeignKey("user_table.id",ondelete="CASCADE"))
