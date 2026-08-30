@@ -69,7 +69,7 @@ def login_user(body: LoginSchema, db: Session):
         {"_id": user.id, "exp": exp_time}, settings.SECRET_KEY, settings.ALGORITHM
     )
 
-    return token
+    return {"token": token}
 
 
 # Token Sent--

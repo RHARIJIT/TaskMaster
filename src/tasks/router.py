@@ -18,7 +18,7 @@ def create_task(
     db: Session = Depends(get_db),
     user: UserModel = Depends(is_authenticated),
 ):
-    return controller.create_task(body, db)
+    return controller.create_task(body, db,user)
 
 
 @task_routes.get(
