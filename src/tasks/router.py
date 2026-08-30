@@ -29,7 +29,7 @@ def create_task(
 def get_all_tasks(
     db: Session = Depends(get_db), user: UserModel = Depends(is_authenticated)
 ):
-    return controller.get_tasks(db)
+    return controller.get_tasks(db,user)
 
 
 @task_routes.get(
@@ -56,7 +56,7 @@ def update_task(
     db: Session = Depends(get_db),
     user: UserModel = Depends(is_authenticated),
 ):
-    return controller.update_task(body, task_id, db)
+    return controller.update_task(body, task_id, db,user)
 
 
 @task_routes.delete(
@@ -69,4 +69,4 @@ def delete_task(
     db: Session = Depends(get_db),
     user: UserModel = Depends(is_authenticated),
 ):
-    return controller.delete_task(task_id, db)
+    return controller.delete_task(task_id, db,user)
